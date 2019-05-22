@@ -1,0 +1,17 @@
+name: goals
+recipe: drupal8
+config:
+  webroot: web
+  via: nginx
+services:
+    phpmyadmin:
+        type: phpmyadmin
+        hosts:
+          - database
+          - onet-db
+    solr:
+        type: solr
+        core: lando
+        config:
+          dir: solr-conf
+        portforward: true
